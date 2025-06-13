@@ -259,6 +259,38 @@ body{
     color:rgb(232, 219, 70);
 }
 
+/*----- footer -----*/
+footer{
+    width:100%;
+    border-top: 1px solid rgb(212, 211, 211);
+    color:#fff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.footer-info{
+    display: flex;
+    margin:0 0.5em;
+    padding:0.5em ;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+.footer-cpr{
+    margin-bottom: 1em;
+}
+
+.footer-info .footer-links{
+    color:#fff;
+    margin: 0 0 0 0.7em;
+}
+
+.footer-links p a{
+    color:#e7e5e5;
+    margin: 0 0 0 0.3em;
+}
+
+
 /*------Media Queries------*/
 
 @media(min-width:600px) and  (max-width:800px){
