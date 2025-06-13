@@ -67,6 +67,7 @@ body{
 
 .container{
     max-width: 920px;
+    margin-bottom: 1em;
 }
 
 .about-short{
@@ -256,6 +257,8 @@ body{
 
 .contact-info-links a{
     text-decoration: none;
+    display: inline;
+    width:140px;
     color:rgb(232, 219, 70);
 }
 
