@@ -1,4 +1,7 @@
 /*--Start--*/
+html{
+    scroll-behavior: smooth;
+}
 body{
     margin:0;
     padding: 0;
@@ -294,6 +297,49 @@ footer{
 }
 
 
+/*-------project-page-------*/
+
+
+.projects-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+    margin:0 0.4em;
+}
+
+.project-h1{
+    margin:1em auto;
+    color:#fff;
+    border-bottom: 1px solid rgb(238, 74, 74);
+    font-family: 'Raleway','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor:default;
+    width:180px;
+    
+}
+.project-main{
+    cursor:pointer;
+    border-radius: 5px;
+    flex: 1 1 calc(33.333% - 16px);
+    padding: 10px;
+    margin-bottom: 1em;
+    min-width: 140px;
+    max-width: 201px;
+    background-color: #e8e8e8;
+    text-align: center;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border:2px solid blueviolet;
+}
+
+.project-main img{
+    width:200px;
+    height:160px;
+    border:1px solid rgb(184, 254, 20);
+}
+
+
+
 /*------Media Queries------*/
 
 @media(min-width:600px) and  (max-width:800px){
@@ -351,5 +397,8 @@ footer{
     }
     .contact-me h2 span{
         width:100px;
+    }
+    .project-main img{
+        width:150px;
     }
 }
