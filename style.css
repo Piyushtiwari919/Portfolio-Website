@@ -1,4 +1,4 @@
-/*--Start--*/
+/*-----Start-----*/
 html{
     scroll-behavior: smooth;
 }
@@ -9,6 +9,7 @@ body{
     background-color: #2b3036;
     display: flex;
     flex-direction: column;
+    cursor: default;
     align-items: center;
 }
 
@@ -87,7 +88,9 @@ body{
 
 .contact-a{
     display: inline-block;
-    border:1px solid white;
+    background-color: rgb(216, 142, 3);
+    border-radius: 2px;
+    border:1.3px solid white;
     padding:0 0.1em 0 0.1em;
     margin-top: 1em;
     text-decoration: none;
@@ -96,7 +99,7 @@ body{
 
 .contact-a p{
     font-size: 1.3rem;
-    margin:0.7em;
+    margin:0.5em;
     color:#fff;
 }
 
@@ -156,8 +159,15 @@ body{
     width:280px;
     border: 1px solid #fff;
     margin-right: 0.8em;
-
+    background-color:darkslategrey;
     
+}
+
+.projects-all img{
+    width:280px;
+    margin:0;
+    display: block;
+    height:200px;
 }
 
 .project-content{
@@ -190,20 +200,30 @@ body{
     font-weight: 500;
 }
 
-.skills-div-one{
+.skills-div{
     display: flex;
 }
 
 .skills-inside{
     font-size: 1.5rem;
     margin-right: 0.6em;
+    background-color: rgb(42, 165, 153);
     max-width:150px;
-    border: 1px solid white;
-    padding: 0 0.5em;
+    border: 1px solid rgb(244, 240, 240);
+    padding: 0 0.4em;
     border-radius: 4px;
 }
 
+.skills-inside h3{
+    margin:0.2em 0;
+}
+
 .skills-inside p{
+    background-color: bisque;
+    color:brown;
+    padding:0.4em 0.4em 0.4em 0.2em;
+    border-radius:3px;
+    width:fit-content;
     font-size: 1.1rem;
 }
 
@@ -372,7 +392,54 @@ footer{
     }
 }
 
-@media(max-width:600px){
+@media (min-width:500px) and (max-width:600px){
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    .location-div{
+        margin-bottom: 1em;
+    }
+    .location-div a{
+        font-size: 1.1rem;
+        margin: 0.5em;
+    }
+    .info-container{
+        display: none;
+    }
+    .my-projects h2 span{
+        width:0px;
+    }
+    .my-skills h2 span{
+        width:100px;
+    }
+    .projects-all{
+        width:200px;
+    }
+    .projects-all img{
+        width:200px;
+        height:170px;
+    }
+    .about-me h2 span{
+        width:100px;
+    }
+    .contact-me h2 span{
+        width:100px;
+    }
+    .project-main img{
+        width:140px;
+        height:120px;
+    }
+    .about-short{
+        padding: 0.2em 0.4em;
+    }
+    .about-short p{
+        margin:0.3em 0.4em;
+    }
+}
+
+@media(max-width:500px){
     .navbar{
         display: flex;
         flex-direction: column;
@@ -408,7 +475,7 @@ footer{
         width:100px;
     }
     .project-main img{
-        width:150px;
+        width:140px;
         height:120px;
     }
     .about-short{
@@ -416,5 +483,12 @@ footer{
     }
     .about-short p{
         margin:0.3em 0.4em;
+    }
+}
+
+@media(max-width:700px) and (min-width:600px){
+    .project-main img{
+        width:160px;
+        height: 130px;
     }
 }
