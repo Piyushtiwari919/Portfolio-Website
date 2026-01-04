@@ -146,7 +146,7 @@ a {
 
 /* === Hero Section === */
 .about-short {
-  min-height: 90vh; /* Full screen height */
+  max-height: 90vh; /* Full screen height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -656,4 +656,5 @@ main {
         background-color: var(--accent);
     }
 }
+
 
