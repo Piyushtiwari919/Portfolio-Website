@@ -316,9 +316,8 @@ section h2::after {
 
 /* === Skills === */
 .skills-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  /* Slightly wider cards to fit "Data Structures" nicely */
 }
 
 .skills-inside {
@@ -343,8 +342,19 @@ section h2::after {
   color: var(--text-main);
 }
 
+/* Icon colors for specific categories */
 .skills-inside h3 i {
+  margin-right: 8px;
   color: var(--accent);
+}
+
+/* Special styling for high-priority skills (The .highlight class) */
+.skills-inside p.highlight {
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.1);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
 }
 
 .chip-container {
@@ -360,12 +370,15 @@ section h2::after {
   border-radius: 20px;
   color: var(--text-muted);
   cursor: default;
-  transition: 0.2s;
+  transition: all 0.2s ease-in-out;
 }
+
 
 .skills-inside p:hover {
   background: var(--accent-glow);
   color: var(--accent);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* === About Me & Quote === */
@@ -557,3 +570,4 @@ main {
     font-size: 2.2rem;
   }
 }
+
