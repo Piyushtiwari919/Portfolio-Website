@@ -572,4 +572,84 @@ main {
   }
 }
 
+/* ========================================= */
+        /* === MOBILE MENU  === */
+/* ========================================= */
 
+/* 1. Hide Hamburger on Desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+/* 2. Mobile Styles */
+@media (max-width: 768px) {
+    
+    /* Make the toggle visible */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        z-index: 999; /* Ensure it's above everything */
+    }
+
+    /* Style the 3 bars */
+    .menu-toggle .bar {
+        height: 3px;
+        width: 100%;
+        background-color: var(--text-main);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* 3. Transform the Navbar Links into a Sidebar */
+    .location-div {
+        /* Fixed position sidebar */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen by default */
+        width: 70%;   /* Cover 70% of screen */
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.95); /* Deep Slate with opacity */
+        backdrop-filter: blur(15px); /* Strong glass effect */
+        
+        /* Flex column for vertical links */
+        display: flex !important; /* Force display flex to override previous hide */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        
+        transition: right 0.4s ease-in-out; /* Smooth slide animation */
+        z-index: 998;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* 4. The Active Class (Added via JS) */
+    .location-div.active {
+        right: 0; /* Slide in */
+    }
+
+    /* Make links bigger on mobile */
+    .location-div a {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    /* 5. Hamburger Animation (Turns into X) */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+        background-color: var(--accent); /* Turn orange */
+    }
+
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+        background-color: var(--accent);
+    }
+}
