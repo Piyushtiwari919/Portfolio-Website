@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+/*Skill Root*/
+:root {
+  --skill-card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --skill-card-border: rgba(255,255,255,0.06);
+  --skill-chip-bg: rgba(255,255,255,0.04);
+  --skill-chip-text: #fff;
+  --skill-accent: rgba(247,206,130,0.14);
+  --skill-radius: 12px;
+  --skill-gap: 12px;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -326,42 +337,109 @@ body {
 }
 
 /* ---- Skills ---- */
-.my-skills {
-  color: #fff;
-  padding: 0.4em 0;
-  font-size: 1.7rem;
-  font-weight: 500;
-}
+/* ===== Modern Skill Section — append only ===== */
 
+/* color tokens — tweak these as you like */
+
+/* 1. Make skills container a responsive grid */
 .skills-div {
-  display: flex;
-  gap: 0.6em;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--skill-gap);
+  align-items: start;
+  width: 100%;
+  margin-top: 8px;
+  box-sizing: border-box;
 }
 
+/* 2. Modern card for each skill group */
 .skills-inside {
-  flex: 0 1 160px;
-  font-size: 1.1rem;
-  background-color: rgb(42, 165, 153);
-  border: 1px solid rgb(244, 240, 240);
-  padding: 8px;
-  border-radius: 4px;
+  background: var(--skill-card-bg);
+  border: 1px solid var(--skill-card-border);
+  border-radius: var(--skill-radius);
+  padding: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 90px;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
 }
 
+/* subtle hover/focus lift */
+.skills-inside:hover,
+.skills-inside:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.52);
+}
+
+/* 3. Group title */
 .skills-inside h3 {
-  margin: 0.2em 0;
+  margin: 0;
   font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.2px;
 }
 
+/* 4. Turn existing <p> skill items into chips without changing HTML */
 .skills-inside p {
-  background-color: bisque;
-  color: brown;
-  padding: 0.35em 0.5em;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 4px 0;
-  font-size: 1rem;
+  display: inline-block;         /* allow chips to sit next to each other */
+  margin: 6px 8px 6px 0;
+  padding: 7px 10px;
+  background: var(--skill-chip-bg);
+  color: var(--skill-chip-text);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25) inset;
+  white-space: nowrap;
 }
+
+/* small screens: allow chips to wrap and compress text */
+@media (max-width: 420px) {
+  .skills-inside {
+    padding: 10px;
+    min-height: 80px;
+  }
+  .skills-inside p {
+    padding: 6px 8px;
+    font-size: 0.88rem;
+    margin: 5px 6px 5px 0;
+  }
+}
+
+/* responsive: stack into single column on narrow viewports */
+@media (max-width: 600px) {
+  .skills-div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* accessible focus outline for keyboard users */
+.skills-inside:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--skill-accent);
+}
+
+/* respects user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skills-inside,
+  .skills-inside:hover,
+  .skills-inside:focus-within {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* small helper to allow more space between header and badges if many badges */
+.skills-inside .skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
 
 /* ---- About Me ---- */
 .about-me {
@@ -543,4 +621,5 @@ footer {
     width: 100px;
   }
 }
+
 
