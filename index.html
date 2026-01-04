@@ -3,143 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piyush's Portfolio</title>
+    <title>Piyush | Full Stack Developer</title>
     <link rel="shortcut icon" href="Images/portfolio-logo-img.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="intro">
-        <div class="info-container">
-            <div class="line-div"></div>
-            <a href="https://www.linkedin.com/in/piyush-tiwari919/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/Piyushtiwari919"><i class="fa-brands fa-github"></i></a>
+
+    <div class="fixed-social-sidebar">
+        <div class="line-div"></div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/piyush-tiwari919/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Piyushtiwari919" target="_blank" aria-label="Github"><i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="navbar">
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
             <div class="name-div">
-                <p>Piyush</p>
+                <p>&lt;Piyush /&gt;</p>
             </div>
             <div class="location-div">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="#about-me">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="index.html#contact-id">Contact Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact-id">Contact</a>
             </div>
         </div>
-    </section>
+    </nav>
+
     <main class="container">
-        <div class="about-short">
-            <p>Piyush is a <span>Full Stack Developer</span> and <span>Python Programmer</span></p>
-            <p class="about-short-p">I have good grasp in <span>JavaScript</span> logics and Problem Solving in both <span>Python</span> and <span>JavaScript</span></p>
-            <a href="index.html#contact-id" class="contact-a"><p>Contact me</p></a>
-        </div>
-        <div class="my-projects">
-            <h2>Projects <span></span></h2>
-            <a href="projects.html" class="view-all"><p>View All <i class="fa-solid fa-arrow-right-long"></i></p></a>
+        
+        <section class="about-short">
+            <p class="greeting">Hi, I'm Piyush</p>
+            <h1>I am a <span class="highlight-text">Full Stack Developer</span> <br> and Python Programmer.</h1>
+            <p class="about-short-p">I craft robust logic in <span class="code-span">JavaScript</span> and solve complex problems using <span class="code-span">Python</span>.</p>
+            <a href="#contact-id" class="cta-button">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
+        </section>
+
+        <section class="my-projects" id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <a href="projects.html" class="view-all">View All <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+            
             <div class="flexible-class">
                 <div class="projects-all">
-                    <img src="Images/weather-app-img.jpg" alt="weather app" >
-                    <p class="project-lang">HTML CSS JavaScript</p>
+                    <div class="img-wrapper">
+                        <img src="Images/weather-app-img.jpg" alt="weather app" onerror="this.src='https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'"> 
+                    </div>
                     <div class="project-info">
-                        <p>Weather App</p>
-                        <p class="project-content">This is a weather web application</p>
-                        <a href="https://weather-web-app-theta-silk.vercel.app/" class="live-btn" target="_blank"><p >Live <i class="fa-solid fa-left-right"></i></p></a>
+                        <div class="project-header">
+                            <p class="project-title">Weather App</p>
+                            <div class="project-links">
+                                <a href="https://weather-web-app-theta-silk.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-content">A responsive weather dashboard providing real-time forecasting.</p>
+                        <div class="tech-stack">
+                            <span class="project-lang">HTML</span>
+                            <span class="project-lang">CSS</span>
+                            <span class="project-lang">JS</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="projects-all">
-                    <img src="Images/Personal-dashboard-img.png" alt="Personal Dashboard">
-                    <p class="project-lang">JavaScript CSS HTML</p>
+                    <div class="img-wrapper">
+                        <img src="Images/Personal-dashboard-img.png" alt="Personal Dashboard" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                    </div>
                     <div class="project-info">
-                        <p>Personal Dashboard</p>
-                        <p class="project-content">It is a Personal Dashboard based on Html Css and JavaScript</p>
-                        <a href="https://github.com/Piyushtiwari919/Personal-Dashboard" class="live-btn" target="_blank"><p >Github <i class="fa-solid fa-left-right"></i></p></a>
+                        <div class="project-header">
+                            <p class="project-title">Personal Dashboard</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Piyushtiwari919/Personal-Dashboard" target="_blank" title="View Code"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-content">A centralized personal dashboard for task and productivity management.</p>
+                        <div class="tech-stack">
+                            <span class="project-lang">JS</span>
+                            <span class="project-lang">CSS</span>
+                            <span class="project-lang">HTML</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="my-skills">
-            <h2>Skills <span></span></h2>
+        </section>
+
+        <section class="my-skills">
+            <h2>Technical Skills</h2>
             <div class="skills-div">
                 <div class="skills-inside">
-                    <h3>Languages</h3>
-                    <p>JavaScript</p>
-                    <p>Python</p>
-                    <p>C Language</p>
+                    <h3><i class="fa-solid fa-code"></i> Languages</h3>
+                    <div class="chip-container">
+                        <p>JavaScript</p>
+                        <p>Python</p>
+                        <p>C / C++</p>
+                    </div>
                 </div>
                 <div class="skills-inside">
-                    <h3>Libraries & Frameworks</h3>
-                    <p>Node JS</p>
-                    <p>Express.js</p>
-                    <p>React Js</p>
-                    <p>Tailwind CSS</p>
+                    <h3><i class="fa-solid fa-layer-group"></i> Frameworks</h3>
+                    <div class="chip-container">
+                        <p>React Js</p>
+                        <p>Node JS</p>
+                        <p>Express.js</p>
+                        <p>Tailwind</p>
+                    </div>
                 </div>
                 <div class="skills-inside">
-                    <h3>Others</h3>
-                    <p>Mongo DB</p>
-                    <p>AWS</p>
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>Rest API Basics</p>
+                    <h3><i class="fa-solid fa-server"></i> Tools & DB</h3>
+                    <div class="chip-container">
+                        <p>MongoDB</p>
+                        <p>AWS Basics</p>
+                        <p>Git/GitHub</p>
+                        <p>REST API</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="about-me" id="about-me">
-            <h2>About Me <span></span></h2>
+        </section>
+
+        <section class="about-me" id="about-me">
+            <h2>About Me</h2>
             <div class="about-me-content">
-                <p>Hii, I'm <span>Piyush!</span></p>
                 <p class="about-intro">
-                    I am a <span>Front-End Developer</span> and <span>Python Programmer</span>.
-                    I can develop <span>User-Friendly</span> and <span>Responsive</span> websites.
-                    I have been doing this for a year now and dissolving my creativity is what I am passionate about. I strive to learn about new tehnologies and frameworks . I am currently learning <span>React.</span> I am currently pursuing B.Tech in Computer Science and i am in my first year of college. I have been helping my various colleagues in their learning.
+                    Hello! I'm <span class="highlight-static">Piyush</span>.
+                    I am a first-year Computer Science student passionate about <span>Full Stack Development</span>. 
+                    I've been coding for a year, focusing on building user-friendly, responsive websites.
+                    Currently, I'm deep-diving into the <span>React ecosystem</span> and helping my peers learn programming logic.
                 </p>
-            </div>
-        </div>
-        <div class="contact-me" id="contact-id">
-            <h2>Contact Me <span></span></h2>
-            <div class="contact-info">
-                <p class="contact-info-data">
-                    I'm interested in all kinds of Internship as well as Freelance opportunies. Feel free to contact me through any of the social media mentioned here if you have any other questions or queries related to my work.
-                </p>
-                <div class="contact-info-links">
-                    <p>Message Me Here</p>
-                    <a href="https://www.linkedin.com/in/piyush-tiwari919/"><i class="fa-brands fa-linkedin"></i> Piyush Tiwari</a>
-                    <p>See My Work</p>
-                    <a href="https://github.com/Piyushtiwari919"><i class="fa-brands fa-github"></i> Piyush Tiwari</a>
+                <div class="quote-div">
+                    <p>"Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live."</p>
+                    <span class="quote-writer">— John Woods</span>
                 </div>
             </div>
-        </div>
-        <div class="quote-div">
-            <p>A Quote for Programmer</p>
-            <p>"Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live"</p>
-            <p class="quote-writer">Dr. Strange</p>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-info">
-            <div class="about-footer">
-                <p>Piyush</p>
-                <p>Front-End Developer</p>
-            </div>
-            <div class="footer-links">
-                <p>Media</p>
-                <p>
-                    <a href="https://www.linkedin.com/in/piyush-tiwari919/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/Piyushtiwari919"><i class="fa-brands fa-github"></i></a>
+        </section>
+
+        <section class="contact-me" id="contact-id">
+            <h2>Get In Touch</h2>
+            <div class="contact-card">
+                <p class="contact-text">
+                    I'm interested in Internships and Freelance opportunities. Have a question or want to work together?
                 </p>
+                <div class="contact-buttons">
+                    <a href="https://www.linkedin.com/in/piyush-tiwari919/" class="social-btn linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Piyushtiwari919" class="social-btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="mailto:your-email@example.com" class="social-btn email"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                </div>
             </div>
-        </div>
-        <div class="footer-cpr">
-            &copy; Copyright 2026. Made by Piyush
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p class="footer-name">Piyush Tiwari</p>
+                <p class="footer-role">Building things for the web.</p>
+            </div>
+            <div class="footer-right">
+                &copy; 2026. Made with <i class="fa-solid fa-heart" style="color: #f7ce82;"></i> by Piyush.
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
-
-
-
