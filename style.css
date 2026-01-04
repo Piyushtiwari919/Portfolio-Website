@@ -200,7 +200,10 @@ a {
 
 /* === Section Headers === */
 section {
-  padding: 80px 0;
+  padding:40px 0;
+}
+.about-short{
+  padding: 80px 0 40px 0;
 }
 
 section h2 {
@@ -653,3 +656,4 @@ main {
         background-color: var(--accent);
     }
 }
+
