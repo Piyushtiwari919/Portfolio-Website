@@ -1,507 +1,465 @@
-html{
-    scroll-behavior: smooth;
+/* === Responsive, drop-in replacement CSS === */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-body{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #2b3036;
-    display: flex;
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Raleway', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2b3036;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* allow full-width sections */
+  min-height: 100vh;
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Top intro / navbar ---- */
+.intro {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  gap: 0.75rem;
+}
+
+.line-div {
+  height: 120px;
+  border-left: 2px solid rgb(215, 212, 212);
+}
+
+.info-container a {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* navbar centered and limited */
+.navbar {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  min-height: 120px;
+  font-family: 'Source Code Pro', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.name-div {
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: context-menu;
+}
+
+.location-div {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.location-div a {
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: #fff;
+  padding: 6px 8px;
+  white-space: nowrap;
+}
+
+/* ---- Main container ---- */
+.container {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto 1.2em auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* ---- About short ---- */
+.about-short {
+  padding: 1.2em 0.4em;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.about-short-p {
+  font-size: 1.5rem;
+  margin: 0.4em 0 0 0;
+}
+
+.contact-a {
+  display: inline-block;
+  background-color: rgb(216, 142, 3);
+  border-radius: 2px;
+  border: 1.3px solid white;
+  padding: 0;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+.contact-a p {
+  font-size: 1.15rem;
+  margin: 0.35em 0.6em;
+  color: #fff;
+}
+
+/* ---- Quote ---- */
+.quote-div {
+  color: #fff;
+  padding: 0.4em;
+  font-size: 1.15rem;
+}
+
+.quote-div p {
+  padding: 0.2em;
+  border: 1px solid #fff;
+  display: inline-block;
+  margin: 0.2em;
+}
+
+/* ---- Projects ---- */
+.my-projects {
+  color: #fff;
+  padding: 0.4em 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.my-projects h2,
+.my-skills h2,
+.about-me h2,
+.contact-me h2 {
+  display: flex;
+  margin: 0.2em 0 0.4em 0;
+  font-weight: 300;
+  align-items: center;
+}
+
+.my-projects h2 span,
+.my-skills h2 span,
+.about-me h2 span,
+.contact-me h2 span {
+  display: inline-block;
+  margin-left: 0.6em;
+  width: 220px;
+  height: 1px;
+  border-top: 2px solid rgb(247, 206, 130);
+}
+
+/* "View All" positioned inside container (not absolute) to avoid overflow on small screens */
+.my-projects .view-all {
+  text-decoration: none;
+  color: #fff;
+  position: static;
+  margin: 0.25em 0;
+  display: inline-block;
+}
+
+/* Make projects container flexible and wrapped */
+.flexible-class {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Card style: use flex-basis instead of fixed width */
+.projects-all {
+  flex: 1 1 280px; /* prefer 280px, but shrink on small screens */
+  max-width: 100%;
+  border: 2px solid #fff;
+  background-color: darkslategrey;
+  border-radius: 5px;
+  padding: 0.2em;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.projects-all img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 0.4em;
+}
+
+.project-lang {
+  border-top: 1px solid rgb(172, 169, 169);
+  border-bottom: 1px solid rgb(172, 169, 169);
+  margin: 0;
+  padding: 6px;
+  font-size: 0.95rem;
+}
+
+.project-info {
+  padding: 0.5em 0.3em;
+  flex: 1 1 auto;
+}
+
+.project-content {
+  font-size: 1rem;
+  margin: 0.4em 0;
+}
+
+.live-btn {
+  padding: 0.25em 0.5em;
+  border: 1px solid rgb(173, 172, 172);
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0.4em 0;
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.live-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ---- Skills ---- */
+.my-skills {
+  color: #fff;
+  padding: 0.4em 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.skills-div {
+  display: flex;
+  gap: 0.6em;
+  flex-wrap: wrap;
+}
+
+.skills-inside {
+  flex: 0 1 160px;
+  font-size: 1.1rem;
+  background-color: rgb(42, 165, 153);
+  border: 1px solid rgb(244, 240, 240);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.skills-inside h3 {
+  margin: 0.2em 0;
+  font-size: 1.05rem;
+}
+
+.skills-inside p {
+  background-color: bisque;
+  color: brown;
+  padding: 0.35em 0.5em;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+/* ---- About Me ---- */
+.about-me {
+  color: #fff;
+  padding: 0.4em 0;
+  font-size: 1.7rem;
+}
+
+.about-me-content p {
+  font-size: 1.05rem;
+  margin: 0.3em 0;
+}
+
+.about-short p span,
+.about-me-content p span {
+  color: darkorange;
+}
+
+.about-intro {
+  line-height: 1.5;
+}
+
+/* ---- Contact ---- */
+.contact-me {
+  color: #fff;
+  padding: 0.4em 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.contact-info {
+  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contact-info-data {
+  line-height: 1.6;
+  margin-top: 0.4em;
+}
+
+.contact-info-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.4em;
+  padding: 6px 8px;
+  border: 0.5px solid gray;
+  gap: 6px;
+}
+
+.contact-info-links a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgb(232, 219, 70);
+}
+
+/* ---- Footer ---- */
+footer {
+  width: 100%;
+  border-top: 1px solid rgb(212, 211, 211);
+  color: #fff;
+  text-align: center;
+  font-size: 1.05rem;
+  margin-top: auto;
+  padding: 12px 0 18px;
+}
+
+.footer-info {
+  display: flex;
+  margin: 0 0.5em;
+  padding: 0.5em;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-info .about-footer p:first-child {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* project page helpers (kept) */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0.4em;
+}
+
+.project-main {
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 1em;
+  min-width: 140px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid blueviolet;
+}
+
+/* ---- Responsive breakpoints ---- */
+
+/* Medium: tablet */
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 100px;
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .about-short { font-size: 1.6rem; }
+  .about-short-p { font-size: 1.1rem; }
+  .projects-all img { height: 160px; }
+  .my-projects h2 span,
+  .my-skills h2 span,
+  .about-me h2 span,
+  .contact-me h2 span { width: 140px; }
+}
+
+/* Small: mobile */
+@media (max-width: 600px) {
+  /* hide social rail to prevent overlap */
+  .info-container {
+    display: none;
+  }
+
+  /* stack navbar */
+  .navbar {
     flex-direction: column;
-    cursor: default;
-    align-items: center;
-}
+    align-items: flex-start;
+    gap: 6px;
+    padding-bottom: 6px;
+  }
 
-.intro{
-    width:100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
+  .name-div { font-size: 1.4rem; }
 
-.info-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    left:25px;
-}
-
-.line-div{
-    height:150px;
-    border-left: 2px solid rgb(215, 212, 212);
-}
-
-.info-container a{
-    color:#fff;
-    font-size: 1rem;
-    margin-top: 0.75em;
-}
-
-
-.navbar{
-    width:80%;
-    min-height:150px;
-    font-family: 'Source Code Pro','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: #fff;
-}
-
-.navbar div{
-    font-size: 1.6rem;
-}
-
-.name-div{
-    cursor: context-menu;
-    font-weight: 700;
-}
-
-.location-div{
-    display: flex;
-    align-items: center;
-}
-.location-div a{
-    font-size: 1.25rem;
-    text-decoration: none;
-    margin:0.75em;
-    color: #fff;
-}
-
-.container{
-    max-width: 920px;
-    margin-bottom: 1em;
-}
-
-.about-short{
-    padding:1.2em 0.4em;
-    font-size: 2rem;
-    font-family: 'Raleway','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:#fff;
-}
-
-.about-short-p{
-    font-size: 1.5rem;
-    margin:0;
-}
-
-.contact-a{
-    display: inline-block;
-    background-color: rgb(216, 142, 3);
-    border-radius: 2px;
-    border:1.3px solid white;
-    padding:0 0.1em 0 0.1em;
-    margin-top: 1em;
-    text-decoration: none;
-
-}
-
-.contact-a p{
-    font-size: 1.3rem;
-    margin:0.5em;
-    color:#fff;
-}
-
-.quote-div{
-    color:#fff;
-    padding:0.4em;
-    font-size: 1.3rem;
-    position: relative;
-}
-
-.quote-div p{
-    padding:0.2em;
-    border:1px solid #fff;
-    display: inline-block;
-    margin: 0.2em;
-}
-
-/*------ Projects ------*/
-
-.my-projects{
-    color: #fff;
-    padding:0.4em;
-    font-size: 1.7rem;
-    font-family: 'Raleway','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.my-projects h2 , .my-skills h2,.about-me h2,.contact-me h2{
-    display: flex;
-    margin:0.2em 0 0.4em 0;
-    font-weight: 300;
-}
-.my-projects h2 span , .my-skills h2 span,.about-me h2 span,.contact-me h2 span{
-    display: inline-block;
-    margin:0.6em 0 0 0.2em;
-    width:220px;
-    height: 1px;
-    border-top: 2px solid rgb(247, 206, 130);
-}
-
-.my-projects .view-all{
-    margin:0 0 0.4em 0;
-    position: absolute;
-    right:6px;
-    text-decoration: none;
-    color: #fff;
-}
-
-.my-projects .flexible-class{
-    display: flex;
-}
-
-.projects-all{
-    width:280px;
-    border: 2px solid #fff;
-    margin-right: 0.8em;
-    background-color:darkslategrey;
-    border-radius: 5px;
-    padding: 0.2em;
-    
-}
-
-.projects-all img{
-    width:280px;
-    margin:0;
-    display: block;
-    height:200px;
-    border-radius: 5px;
-    margin-bottom: 0.3em;
-}
-
-.project-content{
-    font-size: 1rem;
-}
-
-.project-lang{
-    border-top: 1px solid rgb(172, 169, 169);
-    border-bottom: 1px solid rgb(172, 169, 169);
-    margin: 0;
-    padding:3px;
-}
-
-.live-btn{
-    padding: 0 0.4em;
-    border: 1px solid rgb(173, 172, 172);
-    border-radius: 5px;
-    display: inline-block;
-    margin: 0.4em;
-    color: #fff;
-    font-size: 0.8rem;
-    text-decoration: none;
-}
-
-.live-btn:hover{
-    background:#fff;
-    color:#000;
-}
-
-/*---- Skills ----*/
-
-.my-skills{
-    color: #fff;
-    padding:0.4em;
-    font-size: 1.7rem;
-    font-family: 'Raleway','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
-}
-
-.skills-div{
-    display: flex;
-}
-
-.skills-inside{
-    font-size: 1.5rem;
-    margin-right: 0.6em;
-    background-color: rgb(42, 165, 153);
-    max-width:160px;
-    border: 1px solid rgb(244, 240, 240);
-    padding: 0 0.4em;
-    border-radius: 4px;
-}
-
-.skills-inside h3{
-    margin:0.2em 0;
-}
-
-.skills-inside p{
-    background-color: bisque;
-    color:brown;
-    padding:0.4em 0.4em 0.4em 0.2em;
-    border-radius:3px;
-    width:fit-content;
-    font-size: 1.1rem;
-}
-
-/*------- About Me -------*/
-.about-me{
-    color: #fff;
-    padding: 0.4em;
-    font-size: 1.7rem;
-    font-family: 'Raleway','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.about-me-content p{
-    font-size: 1.1rem;
-    margin:0.3em 0;
-}
-
-.about-short p span, .about-me-content p span{
-    color:darkorange;
-}
-
-.about-intro{
-    line-height: 20px;
-}
-
-/*------- Contact Me -------*/
-.contact-me{
-    color:#fff;
-    padding:0.4em;
-    font-size: 1.7rem;
-    font-family: 'Raleway','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
-}
-
-.contact-info{
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    width:100%;
-}
-
-.contact-info-data{
-    line-height: 24px;
-    margin-top: 0.4em;
-    margin-right: 0;
-}
-
-.contact-info-links{
-    display: flex;
-    flex-direction: column;
-    margin-top: 0.4em;
-    padding:0 0 3px 4px;
-    border:0.5px solid gray;
-}
-
-.contact-info-links a{
-    text-decoration: none;
-    display: inline;
-    width:140px;
-    color:rgb(232, 219, 70);
-}
-
-/*----- footer -----*/
-footer{
-    width:100%;
-    border-top: 1px solid rgb(212, 211, 211);
-    color:#fff;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.footer-info{
-    display: flex;
-    margin:0 0.5em;
-    padding:0.5em ;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-}
-.footer-cpr{
-    margin-bottom: 1em;
-}
-
-.footer-info .footer-links{
-    color:#fff;
-    margin: 0 0 0 0.7em;
-}
-
-.footer-links p a{
-    color:#e7e5e5;
-    margin: 0 0 0 0.3em;
-}
-
-
-/*-------project-page-------*/
-
-
-.projects-container{
-    display: flex;
+  .location-div {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
     flex-wrap: wrap;
-    justify-content: space-between;
+  }
+
+  /* projects stack full width */
+  .flexible-class {
+    flex-direction: column;
+  }
+
+  .projects-all {
+    flex: 1 1 100%;
+  }
+
+  .projects-all img {
+    height: 140px;
+  }
+
+  .skills-div {
     gap: 8px;
-    margin:0 0.4em;
-}
+  }
 
+  .skills-inside {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 
+  .about-short { font-size: 1.35rem; }
+  .about-short-p { font-size: 1rem; }
 
-.project-h1{
-    margin:1em auto;
-    color:#fff;
-    border-bottom: 1px solid rgb(238, 74, 74);
-    font-family: 'Raleway','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    cursor:default;
-    width:202px;
-    
-}
-.project-main{
-    background-color: #e8e8e8;
-    border-radius: 5px;
-    flex: 1 1 calc(25.333% - 16px);
-    padding: 5px;
-    margin-bottom: 1em;
-    min-width: 140px;
-    /* max-width: 201px; */
-    text-align: center;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border:2px solid blueviolet;
-    cursor:default
-}
-
-.project-main img{
-    width:200px;
-    height:160px;
-}
-
-.visit-btn{
-    color:#2b3036;
-    padding: 0.1em;
-    border: 1px solid rgb(55, 55, 55);
-    display: inline-block;
-    margin: 0.4em;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-
-
-/*------Media Queries------*/
-
-@media(min-width:600px) and  (max-width:800px){
-    .navbar{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100vw;
-    }
-    .location-div{
-        display: flex;
-        justify-content: space-between;
-    }
-    .my-projects h2 span, .my-skills h2 span,.contact-me h2 span,.about-me h2 span{
-        width:120px;
-    }
-    .projects-all{
-    width:280px;
-    border: 1px solid #fff;
-    margin-right: 0.8em;
-    }
-}
-
-@media (min-width:500px) and (max-width:600px){
-    .navbar{
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-    }
-    .location-div{
-        margin-bottom: 1em;
-    }
-    .location-div a{
-        font-size: 1.1rem;
-        margin: 0.5em;
-    }
-    .info-container{
-        display: none;
-    }
-    .my-projects h2 span{
-        width:0px;
-    }
-    .my-skills h2 span{
-        width:100px;
-    }
-    .projects-all{
-        width:200px;
-    }
-    .projects-all img{
-        width:200px;
-        height:170px;
-    }
-    .about-me h2 span{
-        width:100px;
-    }
-    .contact-me h2 span{
-        width:100px;
-    }
-    .project-main img{
-        width:140px;
-        height:120px;
-    }
-    .about-short{
-        padding: 0.2em 0.4em;
-    }
-    .about-short p{
-        margin:0.3em 0.4em;
-    }
-}
-
-@media(max-width:500px){
-    .navbar{
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-    }
-    .location-div{
-        margin-bottom: 1em;
-    }
-    .location-div a{
-        font-size: 1.1rem;
-        margin: 0.5em;
-    }
-    .info-container{
-        display: none;
-    }
-    .my-projects h2 span{
-        width:0px;
-    }
-    .my-skills h2 span{
-        width:100px;
-    }
-    .projects-all{
-        width:150px;
-    }
-    .projects-all img{
-        width:150px;
-        height:130px;
-    }
-    .about-me h2 span{
-        width:100px;
-    }
-    .contact-me h2 span{
-        width:100px;
-    }
-    .project-main img{
-        width:140px;
-        height:120px;
-    }
-    .about-short{
-        padding: 0.2em 0.4em;
-    }
-    .about-short p{
-        margin:0.3em 0.4em;
-    }
-}
-
-@media(max-width:700px) and (min-width:600px){
-    .project-main img{
-        width:160px;
-        height: 130px;
-    }
+  .my-projects h2 span,
+  .my-skills h2 span,
+  .about-me h2 span,
+  .contact-me h2 span {
+    width: 100px;
+  }
 }
