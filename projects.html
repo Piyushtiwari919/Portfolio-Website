@@ -3,94 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piyush's Portfolio</title>
-    <link rel="shortcut icon" href="Images/projects-icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <title>All Projects | Piyush</title>
+    <link rel="shortcut icon" href="Images/portfolio-logo-img.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="intro">
-        <div class="info-container">
-            <div class="line-div"></div>
-            <a href="https://www.linkedin.com/in/piyush-tiwari919/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/Piyushtiwari919"><i class="fa-brands fa-github"></i></a>
+
+    <div class="fixed-social-sidebar">
+        <div class="line-div"></div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/piyush-tiwari919/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Piyushtiwari919" target="_blank"><i class="fa-brands fa-github"></i></a>
         </div>
-        <div class="navbar">
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
             <div class="name-div">
-                <p>Piyush</p>
+                <p>&lt;Piyush /&gt;</p>
             </div>
             <div class="location-div">
                 <a href="index.html">Home</a>
-                <a href="index.html#about">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="index.html#contact-id">Contact Me</a>
+                <a href="index.html#about-me">About</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="index.html#contact-id">Contact</a>
             </div>
         </div>
-    </section>
+    </nav>
+
     <main class="container">
-        <h1 class="project-h1">#My Projects</h1>
-        <div class="projects-container">
-            <div class="project-main">
-                <img src="Images/weather-app-img.jpg" alt="weather-app">
-                <p class="used-lang">HTML CSS JavaScript</p>
-                <div class="project-div">
-                    <p class="project-title">Weather App</p>
-                    <p class="project-content">A Web Application that can forecast weather anywhere</p>
-                    <a href="https://weather-web-app-theta-silk.vercel.app/" target="_blank" class="visit-btn"><p >Live <i class="fa-solid fa-left-right"></i></p></a>
+        
+        <header class="page-header">
+            <h1>All Projects</h1>
+            <p class="page-subtitle">A collection of things I've built with code.</p>
+        </header>
+
+        <div class="projects-grid">
+            
+            <div class="projects-all">
+                <div class="img-wrapper">
+                    <img src="Images/weather-app-img.jpg" alt="Weather App" onerror="this.src='https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <p class="project-title">Weather App</p>
+                        <div class="project-links">
+                            <a href="https://weather-web-app-theta-silk.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="#" title="View Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-content">A responsive web application that forecasts weather conditions for any location globally.</p>
+                    <div class="tech-stack">
+                        <span class="project-lang">HTML</span>
+                        <span class="project-lang">CSS</span>
+                        <span class="project-lang">JS</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-main">
-                <img src="Images/Personal-dashboard-img.png" alt="Personal-Dashboard">
-                <p class="used-lang">HTML CSS JavaScript</p>
-                <div class="project-div">
-                    <p class="project-title">Personal Dashboard</p>
-                    <p class="project-content">User-friendly dashboard that can help with basic tasks</p>
-                    <a href="https://github.com/Piyushtiwari919/Personal-Dashboard" target="_blank" class="visit-btn"><p >Github <i class="fa-solid fa-left-right"></i></p></a>
+
+            <div class="projects-all">
+                <div class="img-wrapper">
+                    <img src="Images/Personal-dashboard-img.png" alt="Personal Dashboard" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <p class="project-title">Personal Dashboard</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Piyushtiwari919/Personal-Dashboard" target="_blank" title="View Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-content">A productivity dashboard to manage daily tasks and links in one centralized place.</p>
+                    <div class="tech-stack">
+                        <span class="project-lang">JavaScript</span>
+                        <span class="project-lang">CSS</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-main">
-                <img src="Images/tic-tac-img.jpg" alt="Tic-Tac-Toe">
-                <p class="used-lang">HTML CSS JavaScript</p>
-                <div class="project-div">
-                    <p class="project-title">TIC Tac Toe Game</p>
-                    <p class="project-content">A Tic Tac Toe game that is simple and user-friendly</p>
-                    <a href="https://github.com/Piyushtiwari919/Tic-tac-toe" target="_blank" class="visit-btn"><p >Github <i class="fa-solid fa-left-right"></i></p></a>
+
+            <div class="projects-all">
+                <div class="img-wrapper">
+                    <img src="Images/tic-tac-img.jpg" alt="Tic Tac Toe" onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <p class="project-title">Tic Tac Toe</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Piyushtiwari919/Tic-tac-toe" target="_blank" title="View Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-content">A classic game implementation with clean logic and a user-friendly interface.</p>
+                    <div class="tech-stack">
+                        <span class="project-lang">Game Logic</span>
+                        <span class="project-lang">JS</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-main">
-                <img src="Images/Bored-Bot-img.png" alt="Bored-Bot">
-                <p class="used-lang">HTML CSS JavaScript</p>
-                <div class="project-div">
-                    <p class="project-title">Bored-Bot</p>
-                    <p class="content">User-friendly web application using API for showing a simple quote</p>
-                    <a href="https://happy-bot.netlify.app/" target="_blank" class="visit-btn"><p >Live <i class="fa-solid fa-left-right"></i></p></a>
+
+            <div class="projects-all">
+                <div class="img-wrapper">
+                    <img src="Images/Bored-Bot-img.png" alt="Bored Bot" onerror="this.src='https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+                <div class="project-info">
+                    <div class="project-header">
+                        <p class="project-title">Bored Bot API</p>
+                        <div class="project-links">
+                            <a href="https://happy-bot.netlify.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <p class="project-content">Fetches random activities from an API to cure boredom. Great for learning Async/Await.</p>
+                    <div class="tech-stack">
+                        <span class="project-lang">API</span>
+                        <span class="project-lang">Fetch</span>
+                        <span class="project-lang">JS</span>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
+
     <footer>
-        <div class="footer-info">
-            <div class="about-footer">
-                <p>Piyush</p>
-                <p>Front-End Developer</p>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p class="footer-name">Piyush Tiwari</p>
+                <p class="footer-role">Building things for the web.</p>
             </div>
-            <div class="footer-links">
-                <p>Media</p>
-                <p>
-                    <a href="https://www.linkedin.com/in/piyush-tiwari919/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/Piyushtiwari919"><i class="fa-brands fa-github"></i></a>
-                </p>
+            <div class="footer-right">
+                &copy; 2026. Made with <i class="fa-solid fa-heart" style="color: #f7ce82;"></i> by Piyush.
             </div>
-        </div>
-        <div class="footer-cpr">
-            &copy; Copyright 2025. Made by Piyush
         </div>
     </footer>
+
 </body>
 </html>
