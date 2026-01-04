@@ -323,6 +323,7 @@ section h2::after {
 .skills-inside {
   background: var(--bg-card);
   padding: 1.5rem;
+  margin:0.5em 0.1em;
   border-radius: var(--radius);
   border: var(--border-subtle);
   transition: 0.3s;
@@ -570,4 +571,5 @@ main {
     font-size: 2.2rem;
   }
 }
+
 
