@@ -389,6 +389,7 @@ body {
   gap: 8px;
   margin: 6px 10px 6px 0;
   padding: var(--skill-chip-padding);
+  color:#fff;
   background: rgba(255,255,255,0.03);
   color: #fff;
   border-radius: 999px;
@@ -639,6 +640,7 @@ footer {
     width: 100px;
   }
 }
+
 
 
 
