@@ -8,13 +8,16 @@
 
 /*Skill Root*/
 :root {
-  --skill-card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  --skill-card-border: rgba(255,255,255,0.06);
-  --skill-chip-bg: rgba(255,255,255,0.04);
-  --skill-chip-text: #fff;
-  --skill-accent: rgba(247,206,130,0.14);
-  --skill-radius: 12px;
-  --skill-gap: 12px;
+  --skill-surface-start: rgba(255,255,255,0.02);
+  --skill-surface-end: rgba(255,255,255,0.008);
+  --skill-border: rgba(255,255,255,0.06);
+  --skill-accent-glow: rgba(247,206,130,0.14);
+  --skill-radius: 14px;
+  --skill-gap: 14px;
+  --skill-chip-padding: 8px 12px;
+  --skill-chip-font: 0.95rem;
+  --skill-shadow: 0 10px 22px rgba(0,0,0,0.45);
+  --skill-chip-shadow: 0 4px 10px rgba(0,0,0,0.28);
 }
 
 html {
@@ -337,43 +340,40 @@ body {
 }
 
 /* ---- Skills ---- */
-/* ===== Modern Skill Section — append only ===== */
-
-/* color tokens — tweak these as you like */
-
-/* 1. Make skills container a responsive grid */
+/* responsive grid that auto-fits new sections */
 .skills-div {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--skill-gap);
   align-items: start;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 12px;
+  padding-bottom: 6px;
   box-sizing: border-box;
 }
 
-/* 2. Modern card for each skill group */
+/* soft, tactile card */
 .skills-inside {
-  background: var(--skill-card-bg);
-  border: 1px solid var(--skill-card-border);
+  background: linear-gradient(180deg, var(--skill-surface-start), var(--skill-surface-end));
+  border: 1px solid var(--skill-border);
   border-radius: var(--skill-radius);
   padding: 14px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  box-shadow: var(--skill-shadow);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 90px;
   transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms;
+  min-height: 92px;
 }
 
-/* subtle hover/focus lift */
+/* gentle hover & focus lift */
 .skills-inside:hover,
 .skills-inside:focus-within {
   transform: translateY(-6px);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.52);
+  box-shadow: 0 18px 42px rgba(0,0,0,0.52);
 }
 
-/* 3. Group title */
+/* group title — clearer and friendlier */
 .skills-inside h3 {
   margin: 0;
   font-size: 1.05rem;
@@ -382,63 +382,81 @@ body {
   letter-spacing: 0.2px;
 }
 
-/* 4. Turn existing <p> skill items into chips without changing HTML */
+/* make existing <p> look like chips (no HTML changes) */
 .skills-inside p {
-  display: inline-block;         /* allow chips to sit next to each other */
-  margin: 6px 8px 6px 0;
-  padding: 7px 10px;
-  background: var(--skill-chip-bg);
-  color: var(--skill-chip-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 10px 6px 0;
+  padding: var(--skill-chip-padding);
+  background: rgba(255,255,255,0.03);
+  color: #fff;
   border-radius: 999px;
-  font-size: 0.95rem;
-  border: 1px solid rgba(255,255,255,0.03);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.25) inset;
+  font-size: var(--skill-chip-font);
+  border: 1px solid rgba(255,255,255,0.035);
+  box-shadow: var(--skill-chip-shadow);
   white-space: nowrap;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 160ms ease;
+  cursor: default;
 }
 
-/* small screens: allow chips to wrap and compress text */
-@media (max-width: 420px) {
-  .skills-inside {
-    padding: 10px;
-    min-height: 80px;
-  }
-  .skills-inside p {
-    padding: 6px 8px;
-    font-size: 0.88rem;
-    margin: 5px 6px 5px 0;
-  }
+/* tiny dot icon on left (visually friendly) */
+.skills-inside p::before {
+  content: "•";
+  font-size: 1.1rem;
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: rgba(255,255,255,0.85);
 }
 
-/* responsive: stack into single column on narrow viewports */
-@media (max-width: 600px) {
-  .skills-div {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* accessible focus outline for keyboard users */
-.skills-inside:focus-within {
+/* micro-interaction on chip hover / focus */
+.skills-inside p:hover,
+.skills-inside p:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.36);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
   outline: none;
-  box-shadow: 0 0 0 4px var(--skill-accent);
 }
 
-/* respects user preference for reduced motion */
+/* make chips wrap nicely on tiny screens */
+.skills-inside p { max-width: calc(100% - 20px); }
+
+/* give chips subtle, varied tints so they look human (nth-child styling) */
+.skills-inside p:nth-of-type(1) { background: linear-gradient(180deg, rgba(247,206,130,0.12), rgba(247,206,130,0.02)); color: #211505; border-color: rgba(247,206,130,0.18); }
+.skills-inside p:nth-of-type(2) { background: linear-gradient(180deg, rgba(164,203,255,0.08), rgba(164,203,255,0.02)); color: #05223a; border-color: rgba(164,203,255,0.14); }
+.skills-inside p:nth-of-type(3) { background: linear-gradient(180deg, rgba(200,220,180,0.08), rgba(200,220,180,0.02)); color: #173217; border-color: rgba(200,220,180,0.14); }
+.skills-inside p:nth-of-type(4) { background: linear-gradient(180deg, rgba(230,190,255,0.08), rgba(230,190,255,0.02)); color: #2b0f2f; border-color: rgba(230,190,255,0.14); }
+.skills-inside p:nth-of-type(5) { background: linear-gradient(180deg, rgba(255,210,180,0.08), rgba(255,210,180,0.02)); color: #3a1f09; border-color: rgba(255,210,180,0.14); }
+/* After 5, repeat the subtle neutral */
+.skills-inside p:nth-of-type(n+6) { background: rgba(255,255,255,0.03); color: #fff; border-color: rgba(255,255,255,0.035); }
+
+/* accessible keyboard focus for chips (if tabbed) */
+.skills-inside p:focus {
+  box-shadow: 0 0 0 4px var(--skill-accent-glow);
+  outline: none;
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .skills-inside { padding: 12px; }
+  .skills-inside h3 { font-size: 1rem; }
+  .skills-inside p { font-size: 0.95rem; padding: 7px 10px; }
+}
+
+@media (max-width: 600px) {
+  .skills-div { grid-template-columns: 1fr; }
+  .skills-inside { padding: 12px; min-height: 78px; }
+  .skills-inside p { font-size: 0.9rem; padding: 6px 8px; margin: 5px 6px 5px 0; }
+}
+
+/* reduced motion respect */
 @media (prefers-reduced-motion: reduce) {
   .skills-inside,
+  .skills-inside p,
   .skills-inside:hover,
-  .skills-inside:focus-within {
-    transition: none !important;
-    transform: none !important;
-  }
+  .skills-inside p:hover { transition: none !important; transform: none !important; box-shadow: none !important; }
 }
 
-/* small helper to allow more space between header and badges if many badges */
-.skills-inside .skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
 
 
 /* ---- About Me ---- */
@@ -621,5 +639,6 @@ footer {
     width: 100px;
   }
 }
+
 
 
